@@ -1,0 +1,32 @@
+server:
+  port: 9090
+  
+
+  
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /console
+  profiles:
+    active: local
+
+  datasource:
+    hikari:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:~/books
+      username: sa
+      password: 
+  sql:
+    init:
+      mode: always
+      schema-locations:
+      - classpath:h2/schema.sql
+      data-locations:
+      - classpath:h2/data.sql
+  jpa:
+    database: h2
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
